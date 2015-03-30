@@ -2458,6 +2458,33 @@ and make sure it's loaded during [[projectile]]'s loading phase:
   (add-hook 'projectile-mode-hook 'projectile-rails-on)
 #+end_src
 
+*** smart-mode-line
+
+#+begin_src emacs-lisp
+  (require-package 'smart-mode-line)
+#+end_src
+
+#+begin_src emacs-lisp
+  (sml/setup)
+#+end_src
+
+#+begin_src emacs-lisp
+  (setq sml/theme nil
+        sml/shorten-directory t
+        sml/shorten-modes t
+        sml/name-width 32
+        sml/mode-width 16
+        sml/use-projectile-p 'before-prefixes
+        sml/projectile-replacement-format " [P:%s] ")
+#+end_src
+
+#+begin_src emacs-lisp
+  ;; this doesn't work well with sml
+  (setq solarized-high-contrast-mode-line nil)
+  ;; projectile is displayed with the buffer name
+  (setq projectile-mode-line nil)
+#+end_src
+
 ** Local and custom configuration
 
 *** Local overrides
